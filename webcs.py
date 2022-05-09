@@ -20,12 +20,9 @@ print(colored("\nWeb post creator\nWeb Code Script 1.0\nby Code Idea\n\n", list)
 
 time.sleep(5)
 
-try:
-    clear = lambda: os.system('cls')
-    clear()
-except:
-    clear = lambda: os.system('clear')
-    clear()
+
+clear = lambda: os.system('clear')
+clear()
 
 while True:
             inpt = input('w*>_ ')
@@ -110,13 +107,8 @@ while True:
 
 
             elif inpt == "w = clear":
-
-                try:
-                    clear = lambda: os.system('cls')
-                    clear()
-                except:
-                    clear = lambda: os.system('clear')
-                    clear()
+                 clear = lambda: os.system('clear')
+                 clear()
 
             elif inpt in c_web:
                 commandid = input('*>_ your id > ')
