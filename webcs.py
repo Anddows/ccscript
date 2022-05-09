@@ -42,7 +42,7 @@ while True:
                 deploy3()
 
                 time.sleep(5)
-                deploy4 = lambda: os.system('git remote add origin https://github.com/Anddows/Anddows.github.io.git')
+                deploy4 = lambda: os.system('git remote add origin https://github.com/ci-posts/ci-posts.github.io.git')
                 deploy4()
 
                 time.sleep(5)
