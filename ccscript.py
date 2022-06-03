@@ -20,18 +20,26 @@ bot_if = ['{bot == if}', 'bot == if']
 bot_send = ["{bot == send}", "bot == send"]
 bot_reply = ["{bot == reply}", "bot == reply"]
 bot_edit = ["{bot == edit}", "bot == edit"]
+bot_edit_text = ["{bot == edit.text}", "bot == edit.text"]
 bot_elif = ["{bot == elif}", "bot == elif"]
 bot_photo = ["{bot == photo}", "bot == photo"]
 bot_photo_caption = ["{bot == photo.caption}", "bot == photo.caption"]
 run = ["{bot.client > start}", "bot.client > start"]
 bot_if_message = ["{bot == if.message}", "bot == if.message"]
 bot_elif_message = ["{bot == elif.message}", "bot == elif.message"]
+bot_clear = ["{ccs = clear}", "ccs = clear"]
 
 with open("colors.txt", "w") as f:
   f.write('green')
 with open("colors.txt", "r+") as f:
   list = f.read()
-print(colored("\n\nTelegram userbot creator\nCool Code Script 2.0\nby Code Idea\n\n", list))
+print(colored("\n\nTelegram userbot creator\nCool Code Script 2.0\nby Code Idea\n\nScanning...\n\n", list))
+
+time.sleep(5)
+
+clear = lambda: os.system('cls')
+clear()
+
 while True:
             inpt = input('C*>_ ')
             inpt = inpt.strip()
@@ -53,6 +61,11 @@ while True:
               with open('bot.py', 'a') as f:
                  f.write(f"api_hash = '{apihash1}'\nclient = TelegramClient('anon', api_id, api_hash)\n\n")
 
+            elif inpt in bot_clear:
+              clear = lambda: os.system('clear')
+              clear()
+
+
             elif inpt in client:
               with open("bot.py", "a") as f:
                 f.write(f"@client.on(events.NewMessage)\nasync def my_event_handler(event):\n")
@@ -66,6 +79,16 @@ while True:
               commandelif = input("C*>_ ")
               with open("bot.py", "a") as f:
                 f.write(f'   elif "{commandelif}" in event.raw_text:\n')
+
+            elif inpt in bot_if_message:
+              commandif = input("C*>_ ")
+              with open("bot.py", "a") as f:
+                f.write(f'   if event.raw_text in event.raw_text:\n')
+
+            elif inpt in bot_elif_message:
+              commandelif = input("C*>_ ")
+              with open("bot.py", "a") as f:
+                f.write(f'   elif event.raw_text in event.raw_text:\n')
 
             elif inpt in bot_send:
               commandsend = input("C*>_ ")
@@ -98,6 +121,10 @@ while True:
               with open("bot.py", "a") as f:
                 f.write(f'    await event.edit("{commandedit}")\n')
 
+            elif inpt in bot_edit_text:
+              with open("bot.py", "a") as f:
+                f.write(f'    await event.edit(event.raw_text)\n')
+
             elif inpt in bot_reply:
               commandreply = input("C*>_ ")
               with open("bot.py", "a") as f:
@@ -112,9 +139,4 @@ while True:
               with open("colors.txt", "r+") as f:
                 list = f.read()
               print(colored(f'C*>_ CommandError: command <{inpt}> not defined', list))
-
-
-
-
-
 
